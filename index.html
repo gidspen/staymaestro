@@ -23,6 +23,7 @@
   --line:#E4E2DB;
   --accent:#0A8F7A;
   --accent-ink:#06705F;
+  --warn:#F2B85B;
   --accent-soft:#E2F3EF;
   --radius:14px;
 }
@@ -134,6 +135,53 @@ section{padding:112px 0}
   .stat:first-child{border-top:0;padding-top:0}
   .origin{grid-template-columns:96px 1fr;margin-top:24px}
   .origin img{width:96px;height:96px}
+}
+
+/* gap analysis */
+.gap{background:var(--ink);color:#fff;border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -50px rgba(18,20,19,.6)}
+.g-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 32px;border-bottom:1px solid #2A2E2C}
+.g-top h3{font-size:17px;letter-spacing:-.02em;font-weight:650;line-height:1.2}
+.g-top p{font-size:13px;color:#8F948F;margin-top:2px}
+.pill.warn{background:rgba(242,184,91,.14);color:var(--warn)}
+.pill.warn::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--warn)}
+.g-hero{display:flex;align-items:end;gap:20px;flex-wrap:wrap;padding:36px 32px 32px;border-bottom:1px solid #2A2E2C;background:radial-gradient(120% 140% at 0% 0%,rgba(10,143,122,.22),transparent 60%)}
+.g-hero b{font-size:clamp(56px,7vw,88px);font-weight:700;letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.g-hero span{font-size:17px;color:#B9BEB9;max-width:15em;padding-bottom:6px}
+.g-body{display:grid;grid-template-columns:1.2fr .8fr}
+.g-col{padding:28px 32px}
+.g-col + .g-col{border-left:1px solid #2A2E2C}
+.g-label{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7D827E;margin-bottom:6px}
+.g-key{display:flex;gap:14px;text-transform:none;letter-spacing:0;font-weight:500}
+.g-key i{display:inline-block;width:10px;height:6px;border-radius:3px;background:var(--warn);margin-right:6px;vertical-align:1px}
+.g-key i.t{width:2px;height:10px;background:#fff;vertical-align:-1px}
+.meter{padding:16px 0;border-bottom:1px solid #2A2E2C}
+.meter:last-child{border-bottom:0;padding-bottom:0}
+.m-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.m-head strong{font-size:15px;font-weight:600}
+.m-head em{font-style:normal;font-size:13px;font-weight:600;color:var(--warn);white-space:nowrap}
+.track{position:relative;height:8px;border-radius:999px;background:#242826}
+.track .you{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,#B98632,var(--warn))}
+.track .top{position:absolute;top:-5px;width:2px;height:18px;margin-left:-1px;background:#fff;border-radius:2px}
+.m-vals{display:flex;justify-content:space-between;font-size:12.5px;color:#8F948F;margin-top:8px;font-variant-numeric:tabular-nums}
+.trend{display:flex;align-items:baseline;gap:10px;margin:14px 0 18px}
+.trend b{font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--warn)}
+.trend span{font-size:14px;color:#B9BEB9}
+.g-chart svg{display:block;width:100%;height:auto}
+.g-chart text{font-size:11px;fill:#7D827E;font-family:inherit}
+.fixes{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #2A2E2C}
+.fix{padding:24px 32px 28px}
+.fix + .fix{border-left:1px solid #2A2E2C}
+.fix .n{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em}
+.fix strong{display:block;font-size:17px;letter-spacing:-.02em;font-weight:650;margin:10px 0 6px;line-height:1.25}
+.fix p{font-size:14px;color:#9EA39F;line-height:1.45}
+@media (max-width:900px){
+  .g-body,.fixes{grid-template-columns:1fr}
+  .g-col + .g-col,.fix + .fix{border-left:0;border-top:1px solid #2A2E2C}
+}
+@media (max-width:640px){
+  .g-top,.g-hero,.g-col,.fix{padding-left:18px;padding-right:18px}
+  .g-top{flex-wrap:wrap}
+  .g-key{display:none}
 }
 
 /* plans */
@@ -271,10 +319,80 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <div class="proof-grid">
       <div class="stat"><b>678</b><span>five star reviews</span></div>
-      <div class="stat"><b>$2M</b><span>a year in bookings on our own stays</span></div>
+      <div class="stat"><b>$2.1M</b><span>a year in bookings on our own stays</span></div>
       <div class="origin">
         <img src="images/babia-cim-p1-1.jpeg" alt="Babia, an A frame cabin in the pines in Montgomery, Texas" loading="lazy" width="132" height="132">
         <p><strong>Built on our own stays.</strong>The same system we use on our own stays, now open to a few other owners.<small>Babia, Montgomery, Texas</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Find the money your<br>rental is missing.</h2>
+      <p>Operator includes a property gap analysis. We compare your home to the best similar homes nearby, read what guests complain about, and show you what to fix first.</p>
+    </div>
+    <div class="gap" aria-label="Sample property gap analysis">
+      <div class="g-top">
+        <div>
+          <h3>Property gap analysis</h3>
+          <p>Sample report. A 3 bedroom home against 24 similar homes nearby.</p>
+        </div>
+        <span class="pill warn">3 gaps found</span>
+      </div>
+      <div class="g-hero">
+        <b>$1,460</b>
+        <span>a month behind the top homes near you</span>
+      </div>
+      <div class="g-body">
+        <div class="g-col">
+          <p class="g-label">Your home vs the top homes nearby <span class="g-key"><span><i></i>You</span><span><i class="t"></i>Top homes</span></span></p>
+          <div class="meter">
+            <div class="m-head"><strong>Revenue a month</strong><em>$1,460 behind</em></div>
+            <div class="track"><span class="you" style="width:61%"></span><span class="top" style="left:87%"></span></div>
+            <div class="m-vals"><span>You $3,340</span><span>Top homes $4,800</span></div>
+          </div>
+          <div class="meter">
+            <div class="m-head"><strong>Nights booked</strong><em>17 points behind</em></div>
+            <div class="track"><span class="you" style="width:61%"></span><span class="top" style="left:78%"></span></div>
+            <div class="m-vals"><span>You 61%</span><span>Top homes 78%</span></div>
+          </div>
+          <div class="meter">
+            <div class="m-head"><strong>Nightly rate</strong><em>$23 behind</em></div>
+            <div class="track"><span class="you" style="width:73%"></span><span class="top" style="left:82%"></span></div>
+            <div class="m-vals"><span>You $182</span><span>Top homes $205</span></div>
+          </div>
+          <div class="meter">
+            <div class="m-head"><strong>Guest rating</strong><em>0.21 behind</em></div>
+            <div class="track"><span class="you" style="width:71%"></span><span class="top" style="left:92%"></span></div>
+            <div class="m-vals"><span>You 4.71</span><span>Top homes 4.92</span></div>
+          </div>
+        </div>
+        <div class="g-col g-chart">
+          <p class="g-label">What guests mention</p>
+          <div class="trend"><b>3x</b><span>more AC complaints than last year</span></div>
+          <svg viewBox="0 0 280 150" role="img" aria-label="AC and heat mentions by quarter, rising from 1 to 6">
+            <line x1="0" x2="280" y1="126" y2="126" stroke="#3A3F3C"/>
+            <rect x="4"   y="111" width="26" height="15" rx="3" fill="#3A3F3C"/>
+            <rect x="39"  y="96"  width="26" height="30" rx="3" fill="#3A3F3C"/>
+            <rect x="74"  y="111" width="26" height="15" rx="3" fill="#3A3F3C"/>
+            <rect x="109" y="81"  width="26" height="45" rx="3" fill="#3A3F3C"/>
+            <rect x="144" y="66"  width="26" height="60" rx="3" fill="#B98632"/>
+            <rect x="179" y="51"  width="26" height="75" rx="3" fill="#D29C45"/>
+            <rect x="214" y="36"  width="26" height="90" rx="3" fill="var(--warn)"/>
+            <rect x="249" y="36"  width="26" height="90" rx="3" fill="var(--warn)"/>
+            <text x="4" y="144">2025</text>
+            <text x="144" y="144">2026</text>
+          </svg>
+          <p class="m-vals" style="margin-top:4px"><span>AC and heat mentions in reviews and messages, by quarter</span></p>
+        </div>
+      </div>
+      <div class="fixes">
+        <div class="fix"><span class="n">FIX FIRST</span><strong>Service the AC before summer</strong><p>It's the top complaint in your reviews, and it's pulling your rating down.</p></div>
+        <div class="fix"><span class="n">THEN</span><strong>Raise Friday and Saturday rates</strong><p>You're $23 under similar homes on weekends, and you still book up.</p></div>
+        <div class="fix"><span class="n">THEN</span><strong>Add what guests search for</strong><p>7 of the top 10 homes nearby have a hot tub. Yours doesn't.</p></div>
       </div>
     </div>
   </div>
@@ -297,6 +415,7 @@ footer a:hover{color:var(--ink)}
           <li>We line up the handyman and specialists</li>
           <li>Regular property checks and walkthroughs</li>
           <li>Pricing tools, inside your rules</li>
+          <li>A property gap analysis against homes nearby</li>
         </ul>
         <a class="btn" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call</a>
       </div>
