@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StayMaestro | Fractional property management for short term rentals</title>
+<meta name="description" content="You call the shots. We run the property. Fractional property management for short term rental owners, starting at $200 a month. No cut of revenue.">
+<meta property="og:title" content="StayMaestro | You call the shots. We run the property.">
+<meta property="og:description" content="Fractional property management for short term rentals. Starting at $200 a month, no cut of revenue, no monthly commitment.">
+<meta property="og:image" content="https://stonemontcap.com/images/babia-cim-p1-1.jpeg">
+<meta property="og:url" content="https://gidspen.github.io/staymaestro/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F6F2;
+  --surface:#FFFFFF;
+  --ink:#121413;
+  --ink-2:#4A4F4C;
+  --ink-3:#8A8F8B;
+  --line:#E4E2DB;
+  --accent:#0A8F7A;
+  --accent-ink:#06705F;
+  --accent-soft:#E2F3EF;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Inter Tight",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600;font-size:16px;text-decoration:none;letter-spacing:-.01em;transition:background .15s, transform .15s}
+.btn:hover{background:var(--accent-ink)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:16px;height:16px}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-ghost:hover{background:var(--surface)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(247,246,242,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font-size:20px;font-weight:700;letter-spacing:-.03em}
+.brand span{font-size:13px;color:var(--ink-3);font-weight:500}
+@media (max-width:420px){.brand{flex-direction:column;gap:0;line-height:1.15}.brand span{font-size:12px}}
+
+/* type */
+.eyebrow{display:inline-flex;align-items:baseline;gap:8px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+.eyebrow i{flex:0 0 6px;width:6px;height:6px;transform:translateY(-2px);border-radius:50%;background:var(--accent)}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.02;font-weight:650}
+h1{font-size:clamp(44px,6.4vw,80px);font-weight:700}
+h2{font-size:clamp(32px,4.2vw,52px)}
+.lede{font-size:clamp(18px,1.6vw,20px);color:var(--ink-2);max-width:30em}
+.muted{color:var(--ink-3)}
+section{padding:112px 0}
+@media (max-width:640px){section{padding:72px 0}}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head p{max-width:24em;color:var(--ink-2)}
+
+/* hero */
+.hero{padding:72px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero h1{margin:22px 0 24px}
+.hero-cta{display:flex;align-items:center;gap:18px;margin-top:36px;flex-wrap:wrap}
+.hero-cta small{font-size:14px;color:var(--ink-3)}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:56px}}
+@media (max-width:640px){.hero{padding:40px 0 72px}}
+
+/* weekly report panel */
+.report{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 24px 60px -24px rgba(18,20,19,.22),0 8px 20px -12px rgba(18,20,19,.10);overflow:hidden}
+.r-top{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);gap:12px}
+.r-top h3{font-size:16px;letter-spacing:-.02em;font-weight:650;line-height:1.2}
+.r-top p{font-size:13px;color:var(--ink-3)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;line-height:1.2}
+.pill.ok{background:var(--accent-soft);color:var(--accent-ink)}
+.pill.ok::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.kpi{padding:16px 22px}
+.kpi + .kpi{border-left:1px solid var(--line)}
+.kpi b{display:block;font-size:28px;font-weight:700;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.r-label{padding:14px 22px 0;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+.work{list-style:none}
+.item{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:start;padding:12px 22px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item .n{font-size:20px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2}
+.item strong{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.item span.d{display:block;font-size:13.5px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+.r-foot{display:flex;justify-content:space-between;align-items:center;padding:12px 22px;background:#FAFAF7;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);gap:12px}
+@media (max-width:520px){
+  .r-top{padding:16px}
+  .kpi{padding:14px 16px}
+  .kpi b{font-size:22px}
+  .r-label{padding:14px 16px 0}
+  .item{grid-template-columns:32px 1fr;padding:12px 16px;gap:2px 12px}
+  .item .pill{display:none}
+  .r-foot{padding:12px 16px}
+}
+
+/* decide / run */
+.split{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:20px;background:var(--surface);overflow:hidden}
+.col{padding:40px 44px}
+.col + .col{border-left:1px solid var(--line)}
+.col h3{font-size:clamp(28px,3vw,36px);margin-bottom:6px}
+.col .who{font-size:14px;color:var(--ink-3);margin-bottom:28px}
+.col.run{background:var(--ink);color:#fff}
+.col.run .who{color:#9EA39F}
+.list{list-style:none}
+.list li{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:17px}
+.col.run .list li{border-color:#2A2E2C}
+.list li::before{content:"";flex:0 0 8px;height:8px;border-radius:2px;background:var(--ink);transform:translateY(-2px)}
+.col.run .list li::before{background:var(--accent);border-radius:50%}
+.rule-note{margin-top:20px;font-size:15px;color:var(--ink-2)}
+@media (max-width:820px){.split{grid-template-columns:1fr}.col + .col{border-left:0;border-top:1px solid var(--line)}.col{padding:32px 24px}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.step{padding:28px 32px 0 0;position:relative}
+.step + .step{padding-left:32px;border-left:1px solid var(--line)}
+.step .n{font-size:13px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums;margin-bottom:40px;display:block}
+.step .big{font-size:clamp(36px,4vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
+.step h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2}
+.step p{color:var(--ink-2);font-size:16px;max-width:20em}
+@media (max-width:820px){
+  .steps{grid-template-columns:1fr;border-top:0}
+  .step,.step + .step{padding:24px 0;border-left:0;border-top:1px solid var(--line)}
+  .step:first-child{border-top:1px solid var(--ink)}
+  .step .n{margin-bottom:16px}
+}
+
+/* proof */
+.proof{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:88px 0}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr) 1.9fr;gap:0;align-items:center}
+.stat{padding:8px 32px 8px 0}
+.stat + .stat{padding-left:32px;border-left:1px solid var(--line)}
+.stat b{display:block;font-size:clamp(44px,5vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1}
+.stat span{display:block;margin-top:12px;color:var(--ink-2);font-size:15px}
+.origin{margin-left:32px;display:grid;grid-template-columns:168px 1fr;gap:20px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.origin img{width:168px;height:128px;object-fit:cover;border-radius:10px}
+.origin p{font-size:15px;line-height:1.4}
+.origin p strong{display:block;font-size:16px;letter-spacing:-.01em;margin-bottom:6px}
+.origin small{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:1000px){
+  .proof-grid{grid-template-columns:repeat(3,1fr)}
+  .origin{grid-column:1 / -1;margin:40px 0 0}
+}
+@media (max-width:640px){
+  .proof{padding:64px 0}
+  .proof-grid{grid-template-columns:1fr}
+  .stat,.stat + .stat{padding:20px 0;border-left:0;border-top:1px solid var(--line)}
+  .stat:first-child{border-top:0;padding-top:0}
+  .origin{grid-template-columns:96px 1fr;margin-top:24px}
+  .origin img{width:96px;height:96px}
+}
+
+/* plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:40px}
+.card.pick{border-color:var(--ink);box-shadow:0 24px 60px -30px rgba(18,20,19,.25)}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-head h3{font-size:24px;letter-spacing:-.03em}
+.card .tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.amount{display:flex;align-items:baseline;gap:8px;margin:20px 0 4px}
+.amount b{font-size:clamp(56px,7vw,80px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.amount span{font-size:18px;color:var(--ink-2)}
+.card .for{color:var(--ink-2);font-size:15px}
+.terms{list-style:none;margin:28px 0 32px;border-top:1px solid var(--line);flex:1}
+.terms li{display:flex;gap:12px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.terms li::before{content:"\2713";flex:0 0 auto;color:var(--accent);font-weight:700}
+.terms li.plus{font-weight:600}
+.card .btn{width:100%}
+.fine{margin-top:28px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:62em}
+@media (max-width:860px){.plans{grid-template-columns:1fr}}
+@media (max-width:640px){.card{padding:28px 20px}}
+
+/* faq */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:64px;padding:16px 0;font-size:19px;font-weight:600;letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:0 0 12px;height:12px;background:linear-gradient(var(--ink),var(--ink)) center/12px 2px no-repeat,linear-gradient(var(--ink),var(--ink)) center/2px 12px no-repeat;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 40px 24px 0;color:var(--ink-2);max-width:36em}
+@media (max-width:900px){.faq-wrap{grid-template-columns:1fr;gap:24px}}
+
+/* final cta */
+.final{padding:0 0 112px}
+.final-box{background:var(--ink);color:#fff;border-radius:28px;padding:80px 64px;display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap}
+.final-box h2{max-width:12em}
+.final-box p{color:#A9AEAA;margin-top:16px;font-size:18px}
+@media (max-width:640px){.final{padding-bottom:64px}.final-box{padding:48px 24px;border-radius:22px}.final-box .btn{width:100%}}
+
+footer{border-top:1px solid var(--line);padding:32px 0 48px;font-size:14px;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--ink);font-weight:650;letter-spacing:-.02em}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>StayMaestro</b><span>by Stonemont Capital</span></a>
+    <a class="btn btn-sm" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i>Fractional property management for short term rentals</span>
+      <h1>You call the shots. We run the property.</h1>
+      <p class="lede">You own the business. You keep your account, your payouts and every decision. We run the daily work for one flat fee, and send you a report every week.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <small>Starting at $200 a month. No cut of revenue.</small>
+      </div>
+    </div>
+
+    <div class="report" aria-label="Sample weekly report">
+      <div class="r-top">
+        <div>
+          <h3>Your weekly report</h3>
+          <p>Sample week, Oct 20 to 26</p>
+        </div>
+        <span class="pill ok">All handled</span>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>86%</b><span>Nights booked</span></div>
+        <div class="kpi"><b>6 min</b><span>Average reply</span></div>
+        <div class="kpi"><b>5.0</b><span>Guest rating</span></div>
+      </div>
+      <p class="r-label">Work done this week</p>
+      <ol class="work">
+        <li class="item">
+          <span class="n">14</span>
+          <div><strong>Guest messages answered</strong><span class="d">Day and night, before and during each stay.</span></div>
+          <span class="pill ok">Done</span>
+        </li>
+        <li class="item">
+          <span class="n">3</span>
+          <div><strong>Turnovers done and checked</strong><span class="d">Cleaner on time. Photos match your list.</span></div>
+          <span class="pill ok">Done</span>
+        </li>
+        <li class="item">
+          <span class="n">1</span>
+          <div><strong>Late arrival helped in</strong><span class="d">New door code sent at 11:40 pm.</span></div>
+          <span class="pill ok">Done</span>
+        </li>
+        <li class="item">
+          <span class="n">1</span>
+          <div><strong>Repair handled</strong><span class="d">AC filter swapped between guests.</span></div>
+          <span class="pill ok">Done</span>
+        </li>
+        <li class="item">
+          <span class="n">2</span>
+          <div><strong>New reviews</strong><span class="d">Both 5 stars. Both replied to.</span></div>
+          <span class="pill ok">Done</span>
+        </li>
+      </ol>
+      <div class="r-foot"><span>Sent to you every Monday</span><span>Payouts go to you</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>You own it.<br>We run it.</h2>
+      <p>Like an owner and an assistant. You make the calls. We do the work.</p>
+    </div>
+    <div class="split">
+      <div class="col">
+        <h3>You decide</h3>
+        <p class="who">Stays yours, always</p>
+        <ul class="list">
+          <li>Your listing account and reviews. We join as your cohost.</li>
+          <li>Your payouts. Money goes straight to you.</li>
+          <li>Your house rules and limits.</li>
+          <li>Your prices and your big calls.</li>
+          <li>The exit. Remove us any time.</li>
+        </ul>
+      </div>
+      <div class="col run">
+        <h3>We run</h3>
+        <p class="who">Every day, inside your rules</p>
+        <ul class="list">
+          <li>Guest messages, day and night</li>
+          <li>Check in help</li>
+          <li>Cleaning schedule and turnovers</li>
+          <li>Repairs and issues</li>
+          <li>Review replies</li>
+          <li>A report every week</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rule-note">Anything outside your rules comes to you first.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How it starts</h2>
+      <p>Three steps. No monthly commitment.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <div class="big">Call</div>
+        <h3>Book a call</h3>
+        <p>Tell us about your property and how you like it run.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <div class="big">Onboard</div>
+        <h3>We set you up</h3>
+        <p>We bring your listing, your rules and your team into our system.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <div class="big">Hands off</div>
+        <h3>We run it for you</h3>
+        <p>Set it and forget it. You get a report every week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="stat"><b>678</b><span>five star reviews</span></div>
+      <div class="stat"><b>$11M</b><span>hospitality portfolio</span></div>
+      <div class="stat"><b>10</b><span>investments</span></div>
+      <div class="origin">
+        <img src="images/babia-cim-p1-1.jpeg" alt="Babia, an A frame cabin in the pines in Montgomery, Texas" loading="lazy" width="132" height="132">
+        <p><strong>Built on our own stays.</strong>The same system we use on our own stays, now open to a few other owners.<small>Babia, Montgomery, Texas</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>One flat fee.<br>No cut of revenue.</h2>
+      <p>You earn more in a busy month. We don't. Our fee stays the same.</p>
+    </div>
+    <div class="plans">
+      <div class="card">
+        <div class="card-head"><h3>Assistant</h3><span class="tag">Smaller homes</span></div>
+        <div class="amount"><b>$200</b><span>a month</span></div>
+        <p class="for">You run your team. We're your assistant.</p>
+        <ul class="terms">
+          <li>Guest messages, day and night</li>
+          <li>Check in help</li>
+          <li>Your cleaners scheduled for every stay</li>
+          <li>Issues sent to your handyman</li>
+          <li>Review replies</li>
+          <li>A report every week</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call</a>
+      </div>
+      <div class="card pick">
+        <div class="card-head"><h3>Operator</h3><span class="tag">Most hands off</span></div>
+        <div class="amount"><b>$350</b><span>a month</span></div>
+        <p class="for">We run your team too.</p>
+        <ul class="terms">
+          <li class="plus">Everything in Assistant</li>
+          <li>We find and oversee good cleaners</li>
+          <li>We line up the handyman and specialists</li>
+          <li>Regular property checks and walkthroughs</li>
+          <li>Pricing tools, inside your rules</li>
+        </ul>
+        <a class="btn" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call</a>
+      </div>
+    </div>
+    <p class="fine">$900 one time setup, which includes your first month. After that you pay at the start of each month, for the month ahead. No monthly commitment. Cleaning, repairs and supplies are paid by you, at cost. Larger and luxury homes are quoted on the call.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap faq-wrap">
+    <h2>Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>How is this different from a full service company?</summary>
+        <p>A full service company takes over your listing and your decisions, and takes a cut of your revenue. We don't. You keep the account and make the calls. We run the daily work for one flat fee.</p>
+      </details>
+      <details>
+        <summary>Which plan is right for me?</summary>
+        <p>If you already have a cleaner and a handyman you trust, Assistant covers you. If you want us to find, run and check on your team too, pick Operator.</p>
+      </details>
+      <details>
+        <summary>How does billing work?</summary>
+        <p>You pay $900 once to set up, and that includes your first month. After that you pay your plan at the start of each month, for the month ahead.</p>
+      </details>
+      <details>
+        <summary>What if I want to stop?</summary>
+        <p>There's no monthly commitment. Remove us as cohost and you're done. Your listing and reviews stay yours.</p>
+      </details>
+      <details>
+        <summary>Where do you work?</summary>
+        <p>We're starting in San Antonio. If your property is somewhere else, ask us on the call.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="final-box">
+      <div>
+        <h2>Own the business. Hand off the work.</h2>
+        <p>Book a short call to see if your property is a fit.</p>
+      </div>
+      <a class="btn" href="https://calendly.com/gideon-spencer/staymaestro-property-call">Book a call
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>StayMaestro</b> by <a href="https://stonemontcap.com">Stonemont Capital</a></span>
+    <span>Fractional property management for short term rentals</span>
+  </div>
+</footer>
+
+</body>
+</html>
